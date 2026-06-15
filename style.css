@@ -1,0 +1,296 @@
+/* =============================================
+   CRAZY CASE — Estilos Personalizados
+   ============================================= */
+
+/* Fuentes y Reset */
+*, *::before, *::after { box-sizing: border-box; }
+
+/* Colores de marca */
+:root {
+    --crazy-blue: #0b1d3a;
+    --crazy-blue-light: #1e3a8a;
+    --crazy-yellow: #ffde59;
+    --crazy-green: #25D366;
+    --crazy-cyan: #00e5ff;
+    --crazy-pink: #ff007f;
+    --crazy-red: #e63946;
+}
+
+/* Fondo con patrón hero */
+.hero-pattern {
+    background-color: #0b1d3a;
+    background-image: radial-gradient(#ffde59 1px, transparent 1px),
+                      radial-gradient(#ffde59 1px, transparent 1px);
+    background-size: 40px 40px;
+    background-position: 0 0, 20px 20px;
+    background-blend-mode: overlay;
+}
+
+/* ==========================================
+   HERO IMAGEN PRINCIPAL
+   ========================================== */
+.hero-crazy {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 100px 20px 40px;
+    background: linear-gradient(135deg, #0b1d3a 0%, #0d2247 50%, #1e3a8a 100%);
+    overflow: hidden;
+    position: relative;
+}
+
+/* Destellos decorativos de fondo */
+.hero-crazy::before {
+    content: '';
+    position: absolute;
+    top: -100px;
+    right: -100px;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(0,229,255,0.08) 0%, transparent 70%);
+    pointer-events: none;
+}
+.hero-crazy::after {
+    content: '';
+    position: absolute;
+    bottom: -80px;
+    left: -80px;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(255,222,89,0.07) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+.hero-content {
+    width: 100%;
+    max-width: 1300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+}
+
+.hero-img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+/* Desktop: muestra crazycase, oculta móvil */
+.hero-img--desktop { display: block; max-width: 1200px; }
+.hero-img--mobile  { display: none;  }
+
+/* Tablets */
+@media (max-width: 900px) {
+    .hero-crazy {
+        min-height: auto;
+        padding: 90px 15px 40px;
+    }
+    .hero-img--desktop { max-width: 100%; }
+}
+
+/* Celulares — cambia imagen */
+@media (max-width: 600px) {
+    .hero-crazy {
+        padding: 80px 0 0;
+    }
+    .hero-img--desktop { display: none; }
+    .hero-img--mobile  { display: block; width: 100%; max-width: 100%; }
+}
+
+/* Gradiente principal */
+.gradient-bg {
+    background: linear-gradient(135deg, #0b1d3a 0%, #1e3a8a 100%);
+}
+
+/* Sombras de texto */
+.text-shadow-crazy { text-shadow: 3px 3px 0px #0b1d3a; }
+.text-shadow-light { text-shadow: 2px 2px 4px rgba(0,0,0,0.5); }
+
+/* ==========================================
+   SECCIÓN ROJA 1: ¿Por qué somos los mejores?
+   ========================================== */
+.section-red-1 {
+    background: linear-gradient(135deg, #7f1d1d 0%, #991b1b 30%, #dc2626 70%, #ef4444 100%);
+    position: relative;
+    overflow: hidden;
+}
+.section-red-1::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+
+/* ==========================================
+   SECCIÓN ROJA 2: CTA Urgencia
+   ========================================== */
+.section-red-2 {
+    background: linear-gradient(135deg, #450a0a 0%, #7f1d1d 40%, #b91c1c 80%, #dc2626 100%);
+    position: relative;
+    overflow: hidden;
+}
+.section-red-2::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 20% 50%, rgba(255,222,89,0.12) 0%, transparent 60%),
+                radial-gradient(ellipse at 80% 50%, rgba(0,229,255,0.08) 0%, transparent 60%);
+}
+.section-red-2 .noise-overlay {
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+    pointer-events: none;
+}
+
+/* ==========================================
+   NAVBAR
+   ========================================== */
+.nav-scrolled {
+    background: rgba(11, 29, 58, 0.97) !important;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 30px rgba(0,0,0,0.4);
+}
+
+/* ==========================================
+   TARJETAS DE PRODUCTOS
+   ========================================== */
+.product-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+.product-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 25px 60px rgba(0,229,255,0.2);
+    border-color: var(--crazy-cyan) !important;
+}
+
+/* ==========================================
+   BENEFICIOS — Cards glassmorphism
+   ========================================== */
+.benefit-card {
+    background: rgba(255,255,255,0.08);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255,255,255,0.15);
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+.benefit-card:hover {
+    background: rgba(255,255,255,0.18);
+    transform: translateY(-4px);
+}
+
+/* ==========================================
+   FORMULARIO DE CONTACTO
+   ========================================== */
+.contact-input {
+    width: 100%;
+    padding: 14px 18px;
+    border-radius: 14px;
+    border: 2px solid #e5e7eb;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 15px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    outline: none;
+    background: #f9fafb;
+}
+.contact-input:focus {
+    border-color: var(--crazy-cyan);
+    box-shadow: 0 0 0 4px rgba(0,229,255,0.12);
+    background: #fff;
+}
+.contact-input::placeholder { color: #9ca3af; }
+
+textarea.contact-input { resize: vertical; min-height: 130px; }
+
+/* ==========================================
+   BOTÓN FLOTANTE WHATSAPP (inferior izquierda)
+   ========================================== */
+.whatsapp-float {
+    position: fixed;
+    bottom: 24px;
+    left: 24px;
+    z-index: 9999;
+    width: 64px;
+    height: 64px;
+    background: var(--crazy-green);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 32px;
+    box-shadow: 0 8px 32px rgba(37,211,102,0.5);
+    text-decoration: none;
+    border: 3px solid white;
+    transition: transform 0.3s ease, background 0.3s ease;
+}
+.whatsapp-float:hover {
+    background: #1db954;
+    transform: scale(1.1);
+}
+
+/* Pulso animado */
+@keyframes wa-pulse {
+    0%   { box-shadow: 0 0 0 0 rgba(37,211,102,0.7); }
+    70%  { box-shadow: 0 0 0 18px rgba(37,211,102,0); }
+    100% { box-shadow: 0 0 0 0 rgba(37,211,102,0); }
+}
+.whatsapp-float { animation: wa-pulse 2s infinite; }
+
+/* ==========================================
+   STATS / NÚMEROS DESTACADOS
+   ========================================== */
+.stat-number {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 900;
+    line-height: 1;
+}
+
+/* ==========================================
+   WAVE DIVIDERS
+   ========================================== */
+.wave-top, .wave-bottom {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+}
+.wave-top    { top: -1px; }
+.wave-bottom { bottom: -1px; }
+
+/* ==========================================
+   ANIMACIONES DE ENTRADA (controladas por JS)
+   ========================================== */
+.anime-fade-up    { opacity: 0; transform: translateY(50px); }
+.anime-fade-left  { opacity: 0; transform: translateX(-50px); }
+.anime-fade-right { opacity: 0; transform: translateX(50px); }
+.anime-scale-in   { opacity: 0; transform: scale(0.85); }
+
+/* ==========================================
+   MAPA EMBED
+   ========================================== */
+.map-container {
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+}
+
+/* ==========================================
+   RESPONSIVE HELPERS
+   ========================================== */
+@media (max-width: 768px) {
+    .stat-number { font-size: 2.2rem; }
+}
+
+/* Marcas ticker */
+@keyframes ticker {
+    0%   { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+.brands-ticker { animation: ticker 20s linear infinite; display: flex; gap: 3rem; width: max-content; }
+.brands-ticker:hover { animation-play-state: paused; }
+.brands-overflow { overflow: hidden; }
